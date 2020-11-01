@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html ng-controller="MainCtroller" ng-app="App">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+     <style>
+        body{
+            background-color:white;
+        }
+        
+        table{
+            width: auto;
+            height: auto;
+            margin-left: 20px;
+        }
+         
+         th{
+             background-color: #8f8b8b;
+         }
+         td{
+             background-color: white;
+         }
+
+		.add{
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        
+       .parent {display: block;
+                position: relative;
+                float: none;
+                line-height: 30px;
+                background-color: #8f8b8b;
+                border-right:#CCC 1px solid;
+        }
+        
+       .parent a{margin: 10px;
+                 color: #FFFFFF;
+                 text-decoration: none;
+        }
+        
+       .parent:hover > ul {display:block;
+                           position:absolute;
+                           
+        }
+        
+       .child {display: none;
+               left: 40%;}
+        
+       .child li {background-color: #E4EFF7;
+                  line-height: 30px;
+                  border-bottom:#CCC 1px solid;
+                  border-right:#CCC 1px solid;
+                  width:100%;
+        }
+        
+       .child li a{color: #000000;}
+        
+        ul{list-style: none;
+          margin: 0;
+          padding: 0px; 
+          min-width:10em;
+        }
+        
+        ul ul ul{left: 100%;
+                 top: 0;
+                 margin-left:1px;}
+
+
+        .parent li:hover {background-color: #F0F0F0;}
+
+        .expand{font-size:12px;
+                float:right;
+                margin-right:0;}
+        
+
+    </style>
+
+    </head>
+    <body >
+        <center ng-init="getdata()"></center>
+        <button ng-click="addRow()" class="add" id="add"><i class="fa fa-plus" style="color: black">Add Deatils</i></button>
+        <br>
+        
+        <table id="dataTable" class="myTable" border="1" style="width: 1000px">
+            <thead>
+                <tr>
+                    <th>
+                        <li class="parent">
+                            <a href="#">Product</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                        <li><input type="checkbox">Product</li>
+                                        <li><input type="checkbox">Discount</li>
+                                        <li><input type="checkbox">CallType</li>
+                                        <li><input type="checkbox">MinOccupancy</li>
+                                        <li><input type="checkbox">MaxOccupancy</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+            
+                    <th>
+                         <li class="parent">
+                            <a href="#">Discount</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                        <li><input type="checkbox">Product</li>
+                                        <li><input type="checkbox">Discount</li>
+                                        <li><input type="checkbox">CallType</li>
+                                        <li><input type="checkbox">MinOccupancy</li>
+                                        <li><input type="checkbox">MaxOccupancy</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>                    
+                    </th>
+                    
+                    <th>
+                         <li class="parent">
+                            <a href="#">CallType</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                        <li><input type="checkbox">Product</li>
+                                        <li><input type="checkbox">Discount</li>
+                                        <li><input type="checkbox">CallType</li>
+                                        <li><input type="checkbox">MinOccupancy</li>
+                                        <li><input type="checkbox">MaxOccupancy</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+                    
+                    <th>
+                         <li class="parent">
+                            <a href="#">MinOccupancy</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                        <li><input type="checkbox">Product</li>
+                                        <li><input type="checkbox">Discount</li>
+                                        <li><input type="checkbox">CallType</li>
+                                        <li><input type="checkbox">MinOccupancy</li>
+                                        <li><input type="checkbox">MaxOccupancy</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+                    
+                    <th>
+                         <li class="parent">
+                            <a href="#">MaxOccupancy</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                        <li><input type="checkbox">Product</li>
+                                        <li><input type="checkbox">Discount</li>
+                                        <li><input type="checkbox">CallType</li>
+                                        <li><input type="checkbox">MinOccupancy</li>
+                                        <li><input type="checkbox">MaxOccupancy</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+                    
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr ng-repeat="x in abc">
+				   <div *ngif="x!=null; else elseBlock">
+                  <td><input type="text" style="width: 100%" class="editable-cell" ng-model="x.product"></td>
+                  <td><input type="text" style="width: 100%" class="editable-cell" ng-model="x.discount"></td>
+                  <td><select name="callType" id="callType" ng-model="x.calltype" style="width: 100%">
+                      <option value="OFFNET">OFFNET</option>
+                      <option value="ONNET">ONNET</option>
+                       </select></td>
+                  <td><input type="text" style="width: 100%" class="editable-cell" ng-model="x.minoccupancy"></td>
+                  <td><input type="text" style="width: 100%" class="editable-cell" ng-model="x.maxoccupancy"></td>
+                  <td>
+                      <button ng-click="removeRow(x.product)"><i class="fa fa-trash" style="color: black"></i></button>
+                  </td>
+                   <td>
+                       <button ng-click="submit(x.product,x.discount,x.calltype,x.minoccupancy,x.maxoccupancy)"><i class="fa fa-dollar" style="color: black"></i></button>
+                   </td>
+			</div>
+				   <ng-template #elseBlock>
+                
+               <tr ng-repeat="entities in rows">
+                  <td><input type="text" style="width: 100%" id="product+{{$index}}" ng-model="product" ng-pattern=regEx2 required></td>
+                  <td><input type="text" style="width: 100%" id="discount+{{$index}}" ng-model="discount" ng-pattern=regEx3 required></td>
+                   <td><select name="callType" id="callType+{{$index}}" ng-model="calltype" style="width: 100%">
+                       <option value="OFFNET">OFFNET</option>
+                       <option value="ONNET">ONNET</option>
+                       </select></td>
+                  <td><input type="text" style="width: 100%" id="min+{{$index}}" ng-model="minoccupancy" ng-pattern=regEx1 required></td>
+                  <td><input type="text" style="width: 100%" id="max+{{$index}}"ng-model="maxoccupancy" ng-pattern=regEx1 required></td>
+                  <td>
+                      <button ng-click="removeRow($index)" disabled><i class="fa fa-trash" style="color: black"></i></button>
+                  </td>
+                   <td>
+                       <button ng-click="submit(product,discount,calltype,minoccupancy,maxoccupancy)" id="submit+{{$index}}"><i class="fa fa-dollar" style="color: black"></i></button>
+                   </td>
+               </tr>
+                    </ng-template>
+                </tr>
+            </tbody>
+        </table>
+        {{display}};
+    </body>
+    
+    <script>
+        
+        // Code goes here
+App=angular.module('App', [])
+App.controller('MainCtroller', function ($scope,$http) {
+    	 $scope.rows =[    
+    ];
+     
+     $scope.r=[]
+    $scope.product;
+	$scope.discount;
+    $scope.calltype;
+    $scope.minoccupancy;
+    $scope.maxoccupancy;
+
+                         
+    $scope.addRow = function() 
+	{
+    $scope.rows.push({product:'',discount:'',calltype:'',minoccupancy:'',maxoccupancy:''});
+    };
+    
+    $scope.removeRow = function(index)
+	{   
+      $scope.rows.splice(index, 1);
+    };
+    
+    $scope.remove= function(index){
+      $scope.abc.splice(index,1);  
+    };
+    
+    //MORETODO
+    $scope.submit = function(product,discount,calltype,minoccupancy,maxoccupancy) 
+	{
+     //var re1 = new RegExp("([0-9])$");
+        //var re2 =new RegExp("([a-zA-Z])");
+        //var re3 =/^[+]?[0-9]+\.[0-9]+$/;
+    //if(re1.test(cellid) && re1.test(discount) && re1.test(lac) && re2.test(product)){    
+    var postObject = new Object();
+    postObject.product = product;
+    postObject.discount = discount;
+    postObject.calltype =calltype;
+    postObject.minoccupancy =minoccupancy;
+    postObject.maxoccupancy = maxoccupancy;
+  
+
+    $http({
+        url: 'http://172.25.26.183:7900/pps/yieldzone/'+postObject.product+'/YzOccupancyDiscount', //change it to dynamic date captures
+        dataType: 'json',
+        method: 'POST',
+        data: postObject,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).success(function(response){
+        $scope.response = response;
+    }).error(function(error){
+        $scope.error = error;
+    });
+     
+    //}else{
+     //   alert("Enter valid data");
+    //}
+    };
+						 $scope.getdata=function()
+						 {
+ $http.get("http://172.25.26.183:7900/pps/yieldzone/YzOccupancyDiscount")
+  .then(function(response) {
+      $scope.abc = response.data;
+	   
+      });	 };
+
+  });
+        
+    </script>
+</html>

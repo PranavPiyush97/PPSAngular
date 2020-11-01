@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="ppsConsole" >
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.3.0-rc.1/angular-route.min.js"></script>
+    <script src="https://code.angularjs.org/1.3.0-rc.1/angular-resource.min.js"></script>
+    <script src="pps.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">PPS</a>
+  <form class="form-inline">
+    <a href="#/home">Home</a>
+  </form>
+</nav>
+        <div class="container">
+        <div ng-view></div>
+        </div>
+    </body>
+</html>

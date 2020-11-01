@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+	<style>
+	input
+		{
+			margin-left: 20px;
+		}
+        body{
+            background-color: white;
+        }
+	</style>
+<body>
+<nav class="navbar navbar-light bg-light">
+	 <form class="form-inline">
+	<a>Search Subscribers</a>
+    <input type="text" class="form-control mr-sm-2"  placeholder="Enter MSISDN" id="msis" ng-model="msisdn" ng-pattern="regE" required>
+    <a class="btn btn-outline-success my-2 my-sm-0" id="search" ng-click="validation()">Search</a>
+	</form>
+</nav>
+</body>
+</html>

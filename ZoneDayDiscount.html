@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+     <style>
+        body{
+            background-color:white;
+        }
+        
+        table{
+            width: auto;
+            height: auto;
+            margin-left: 20px;
+        }
+         th{
+             background-color: #8f8b8b;
+         }
+         
+         td{
+             background-color: white;
+         }
+
+		.add{
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        
+       .parent {display: block;
+                position: relative;
+                float: none;
+                line-height: 30px;
+                background-color: #8f8b8b;
+                border-right:#CCC 1px solid;
+        }
+        
+       .parent a{margin: 10px;
+                 color: #FFFFFF;
+                 text-decoration: none;
+        }
+        
+       .parent:hover > ul {display:block;
+                           position:absolute;
+                           
+        }
+        
+       .child {display: none;
+               left: 40%;}
+        
+       .child li {background-color: #E4EFF7;
+                  line-height: 30px;
+                  border-bottom:#CCC 1px solid;
+                  border-right:#CCC 1px solid;
+                  width:100%;
+        }
+        
+       .child li a{color: #000000;}
+        
+        ul{list-style: none;
+          margin: 0;
+          padding: 0px; 
+          min-width:10em;
+        }
+        
+        ul ul ul{left: 100%;
+                 top: 0;
+                 margin-left:1px;}
+
+
+        .parent li:hover {background-color: #F0F0F0;}
+
+        .expand{font-size:12px;
+                float:right;
+                margin-right:0;}
+        
+
+    </style>
+
+    </head>
+    <body >
+        <center ng-init="getdata()"></center>
+        <button ng-click="addRow()" class="add" id="add"><i class="fa fa-plus" style="color: black">Add Deatils</i></button>
+        <br>
+        
+        <table id="dataTable" class="myTable" border="1">
+            <thead>
+                <tr>
+                    <th>
+                        <li class="parent">
+                            <a href="#">Product</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                        <li><input type="checkbox">Product</li>
+                                        <li><input type="checkbox">Discount</li>
+                                        <li><input type="checkbox">ZoneId</li>
+                                        <li><input type="checkbox">CallType</li>
+                                        <li><input type="checkbox">DayType</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+            
+                    <th>
+                          <li class="parent">
+                            <a href="#">Discount</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                        <li><input type="checkbox">Product</li>
+                                        <li><input type="checkbox">Discount</li>
+                                        <li><input type="checkbox">ZoneId</li>
+                                        <li><input type="checkbox">CallType</li>
+                                        <li><input type="checkbox">DayType</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+                    
+                    <th>
+                          <li class="parent">
+                            <a href="#">ZoneId</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                        <li><input type="checkbox">Product</li>
+                                        <li><input type="checkbox">Discount</li>
+                                        <li><input type="checkbox">ZoneId</li>
+                                        <li><input type="checkbox">CallType</li>
+                                        <li><input type="checkbox">DayType</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+                    
+                    <th>
+                          <li class="parent">
+                            <a href="#">CallType</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                        <li><input type="checkbox">Product</li>
+                                        <li><input type="checkbox">Discount</li>
+                                        <li><input type="checkbox">ZoneId</li>
+                                        <li><input type="checkbox">CallType</li>
+                                        <li><input type="checkbox">DayType</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+                    
+                    <th>
+                          <li class="parent">
+                            <a href="#">DayType</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                        <li><input type="checkbox">Product</li>
+                                        <li><input type="checkbox">Discount</li>
+                                        <li><input type="checkbox">ZoneId</li>
+                                        <li><input type="checkbox">CallType</li>
+                                        <li><input type="checkbox">DayType</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr ng-repeat="x in abc">
+				   <div *ngif="x!=null; else elseBlock">
+                  <td><input type="text" style="width: 100%" id="product-{{$index}}" ng-model="x.product"></td>
+                  <td><input type="text" style="width: 100%" id="discount-{{$index}}" ng-model="x.discount"></td>
+                  <td><input type="text" style="width: 100%" id="zone-{{$index}}" ng-model="x.zoneid" ></td>
+                  <td><select name="callType" id="calltype-{{$index}}" ng-model="x.calltype">
+                      <option value="OFFNET">OFFNET</option>
+                      <option value="ONNET">ONNET</option>
+                       </select></td>
+                  <td><select name="dayType" id="daytype-{{$index}}" ng-model="x.daytype">
+                      <option value="WEEKDAYS">WEEKDAYS</option>
+                      <option value="HOLIDAYS">HOLIDAYS</option>
+                       </select></td>
+                  <td>
+                      <button ng-click="removeRow(x.zoneid)"><i class="fa fa-trash" style="color: black"></i></button>
+                  </td>
+                   <td>
+                       <button ng-click="submit(x.product,x.discount,x.zoneid,x.calltype,x.daytype)" id="submit-{{$index}}"><i class="fa fa-dollar" style="color: black"></i></button>
+                   </td>
+			</div>
+				   <ng-template #elseBlock>
+                
+               <tr ng-repeat="entities in rows">
+                  <td><input type="text" width="100%" id="product+{{$index}}" ng-model="product" ng-pattern=regEx2 required></td>
+                  <td><input type="text" width="100%" id="discount+{{$index}}" ng-model="discount"  ng-pattern=regEx3 required></td>
+                  <td><input type="text" width="100%" id="zone+{{$index}}" ng-model="zoneid" ng-pattern=regEx1 required></td>
+                   <td><select name="callType" id="calltype+{{$index}}" ng-model="calltype">
+                       <option value="OFFNET">OFFNET</option>
+                       <option value="ONNET">ONNET</option>
+                       </select></td>
+                   <td><select name="dayType" id="daytype+{{$index}}" ng-model="daytype">
+                      <option value="WEEKDAYS">WEEKDAYS</option>
+                      <option value="HOLIDAYS">HOLIDAYS</option>
+                       </select></td>
+                  <td>
+                      <button ng-click="removeRow($index)" disabled><i class="fa fa-trash" style="color: black"></i></button>
+                  </td>
+                   <td>
+                       <button ng-click="submit(product,discount,zoneid,calltype,daytype)" id="submit+{{$index}}"><i class="fa fa-dollar" style="color: black"></i></button>
+                   </td>
+               </tr>
+                    </ng-template>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

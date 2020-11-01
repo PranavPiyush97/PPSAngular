@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html ng-controller="MainCtroller" ng-app="App">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            background-color:white;
+        }
+        
+        table{
+            width: auto;
+            height: auto;
+            margin-left: 20px;
+        }
+        td{
+            background-color: white;
+        }
+        th{
+            background-color: #8f8b8b;
+        }
+
+		.add{
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        
+       .parent {display: block;
+                position: relative;
+                float: none;
+                line-height: 30px;
+                background-color: #8f8b8b;
+                border-right:#CCC 1px solid;
+        }
+        
+       .parent a{margin: 10px;
+                 color: #FFFFFF;
+                 text-decoration: none;
+        }
+        
+       .parent:hover > ul {display:block;
+                           position:absolute;
+                           
+        }
+        
+       .child {display: none;
+               left: 40%;}
+        
+       .child li {background-color: #E4EFF7;
+                  line-height: 30px;
+                  border-bottom:#CCC 1px solid;
+                  border-right:#CCC 1px solid;
+                  width:100%;
+        }
+        
+       .child li a{color: #000000;}
+        
+        ul{list-style: none;
+          margin: 0;
+          padding: 0px; 
+          min-width:10em;
+        }
+        
+        ul ul ul{left: 100%;
+                 top: 0;
+                 margin-left:1px;}
+
+
+        .parent li:hover {background-color: #F0F0F0;}
+
+        .expand{font-size:12px;
+                float:right;
+                margin-right:0;}
+        
+
+    </style>
+    </head>
+    <body>
+		<center ng-init="getData()"></center>
+        <button ng-click="addRow()" class="add" id="add"><i class="fa fa-plus" style="color: black">Add Deatils</i></button>
+        <br>
+        
+        <table id="dataTable" class="myTable" border="1">
+            <thead>
+                <tr>
+                    <th>
+						 <li class="parent">
+                            <a href="#">CellId</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                       <li><input type="checkbox">CellId</li>
+                                       <li><input type="checkbox">Latitude</li>
+                                       <li><input type="checkbox">Longitude</li>
+                                       <li><input type="checkbox">Radius</li>
+                                       <li><input type="checkbox">RowId</li>
+                                       <li><input type="checkbox">OpcoId</li>
+                                       <li><input type="checkbox">ServiceKeyId</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+                    
+                    <th>
+                        <li class="parent">
+                            <a href="#">Latitude</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                       <li><input type="checkbox">CellId</li>
+                                       <li><input type="checkbox">Latitude</li>
+                                       <li><input type="checkbox">Longitude</li>
+                                       <li><input type="checkbox">Radius</li>
+                                       <li><input type="checkbox">RowId</li>
+                                       <li><input type="checkbox">OpcoId</li>
+                                       <li><input type="checkbox">ServiceKeyId</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+            
+                    <th>
+                         <li class="parent">
+                            <a href="#">Longitude</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                       <li><input type="checkbox">CellId</li>
+                                       <li><input type="checkbox">Latitude</li>
+                                       <li><input type="checkbox">Longitude</li>
+                                       <li><input type="checkbox">Radius</li>
+                                       <li><input type="checkbox">RowId</li>
+                                       <li><input type="checkbox">OpcoId</li>
+                                       <li><input type="checkbox">ServiceKeyId</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+                    
+                    <th>
+                         <li class="parent">
+                            <a href="#">Radius</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                       <li><input type="checkbox">CellId</li>
+                                       <li><input type="checkbox">Latitude</li>
+                                       <li><input type="checkbox">Longitude</li>
+                                       <li><input type="checkbox">Radius</li>
+                                       <li><input type="checkbox">RowId</li>
+                                       <li><input type="checkbox">OpcoId</li>
+                                       <li><input type="checkbox">ServiceKeyId</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+                    
+                    <th>
+                          <li class="parent">
+                            <a href="#">RowId</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                       <li><input type="checkbox">CellId</li>
+                                       <li><input type="checkbox">Latitude</li>
+                                       <li><input type="checkbox">Longitude</li>
+                                       <li><input type="checkbox">Radius</li>
+                                       <li><input type="checkbox">RowId</li>
+                                       <li><input type="checkbox">OpcoId</li>
+                                       <li><input type="checkbox">ServiceKeyId</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+                    
+                    <th>
+                         <li class="parent">
+                            <a href="#">OpcoId</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                       <li><input type="checkbox">CellId</li>
+                                       <li><input type="checkbox">Latitude</li>
+                                       <li><input type="checkbox">Longitude</li>
+                                       <li><input type="checkbox">Radius</li>
+                                       <li><input type="checkbox">RowId</li>
+                                       <li><input type="checkbox">OpcoId</li>
+                                       <li><input type="checkbox">ServiceKeyId</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+                    
+                    <th>
+                         <li class="parent">
+                            <a href="#">ServiceKeyId</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                       <li><input type="checkbox">CellId</li>
+                                       <li><input type="checkbox">Latitude</li>
+                                       <li><input type="checkbox">Longitude</li>
+                                       <li><input type="checkbox">Radius</li>
+                                       <li><input type="checkbox">RowId</li>
+                                       <li><input type="checkbox">OpcoId</li>
+                                       <li><input type="checkbox">ServiceKeyId</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+                    
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+			<tbody>
+				
+               <tr ng-repeat="x in abc">
+				   <div *ngif="x!=null; else elseBlock">
+					   <td><input type="text" width="100%" id="CellId-{{$index}}" ng-model="x.cgiId"></td>
+                  <td><input type="text" width="100%" id="latitude-{{$index}}" ng-model="x.latitude"></td>
+                  <td><input type="text" width="100%" id="longitude-{{$index}}" ng-model="x.longitude"></td>
+                  <td><input type="text" width="100%" id="radius-{{$index}}" ng-model="x.radius"></td>
+                  <td><input type="text" width="100%" id="rowId-{{$index}}" ng-model="x.row_Id"></td>
+                  <td><input type="text" width="100%" id="opcoid-{{$index}}" ng-model="x.opco_Id"></td>
+                  <td><input type="text" width="100%" id="service-{{$index}}" ng-model="x.serviceKey_Id"></td>
+                  <td>
+                      <button ng-click="removeRow(x.cgiId)"><i class="fa fa-trash" style="color: black"></i></button>
+                  </td>
+                   <td>
+                       <button ng-click="submit(x.cgiId,x.latitude,x.longitude,x.radius,x.row_Id,x.opco_Id,x.serviceKey_Id)" id="x-{{$index}}"><i class="fa fa-dollar" style="color: black"></i></button>
+                   </td>
+                 
+                   
+			</div>
+				   <ng-template #elseBlock>
+					   <tr ng-repeat="entities in rows">
+                  <td><input type="text" width="100%" id="CellId+{{$index}}" ng-model="cgiId" ng-pattern="regEx" required></td>
+                  <td><input type="text" width="100%" id="latitude+{{$index}}" ng-model="latitude" ng-pattern="regEx" required></td>
+                  <td><input type="text" width="100%" id="longitude+{{$index}}" ng-model="longitude" ng-pattern="regEx" required></td>
+                  <td><input type="text" width="100%" id="radius+{{$index}}" ng-model="radius" ng-pattern="regEx" required></td>
+                  <td><input type="text" width="100%" id="rowId+{{$index}}" ng-model="row_Id" ng-pattern="regEx" required></td>
+                  <td><input type="text" width="100%" id="opcoid+{{$index}}" ng-model="OpcoId" ng-pattern="regEx" required></td>
+                  <td><input type="text" width="100%" id="service+{{$index}}" ng-model="ServiceKeyId" ng-pattern="regEx" required></td>
+                  <td>
+                      <button ng-click="removeRow($index)" disabled><i class="fa fa-trash" style="color: black"></i></button>
+                  </td>
+                   <td>
+                       <button ng-click="submit(cgiId,latitude,longitude,radius,row_Id,OpcoId,ServiceKeyId)" id="entities-{{$index}}"><i class="fa fa-dollar" style="color: black"></i></button>
+                   </td>
+               </tr>
+				   </ng-template>
+               </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

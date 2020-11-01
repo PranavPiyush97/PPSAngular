@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SunscribersData</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+     <!--<script src="//code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.3.0-rc.1/angular-route.min.js"></script>
+    <script src="//code.angularjs.org/1.3.0-rc.1/angular-resource.min.js"></script>
+        <script src="app.js"></script>-->
+        <style>
+    .div1
+            {
+               background-color:#e6e6ff;
+                padding-left: 10px;
+            }
+            .div2
+            {
+               background-color:#D5D6F6;
+               padding-left: 10px;
+            }
+    </style>
+    </head>
+    <body>
+        <div class="div1">
+        User<br>
+        MSISDN:{{msisdn}}
+        </div>
+        <br>
+         My Subscriptions:
+         <div class="div2">
+         <input type="checkbox"   id="HZ" ng-click="onCheckHZ()">
+         <label> Home Zone(*)</label><br>
+         <input type="checkbox"  id="YZ" ng-click="onCheckYZ()">
+         <label>Yield Zone</label><br>
+         <input type="checkbox"  id="RZ" ng-click="onCheckRZ()">
+         <label>Reginal Zone</label><br>
+         <input type="checkbox"  id="pingService" ng-click="onCheckPingService()">
+         <label>Ping Call Service</label><br>
+         <input type="checkbox"  id="pingNotification" ng-click="onCheckPingNotification()">
+         <label>Ping Call Notification</label><br>
+         <input type="checkbox" id="F&F" ng-click="onCheckFF()">
+         <label>Friends and Family(*)</label><br>
+         <input type="checkbox"  id="DND" ng-click="onCheckDND()">
+         <label>Do Not Disturb</label><br>
+         <input type="checkbox"  id="callHunting" ng-click="onCheckCallHunting()">
+         <label>Call Hunting/Diversion</label><br>
+         <input type="checkbox"  id="blacklist" ng-click="onCheckBlacklist()">
+         <label>Pay4Me Blacklist(*)</label> <br>
+         <input type="checkbox"  id="whitelist" ng-click="onCheckWhitelist()">
+         <label>Pay4Me Whitelist(*)</label> <br>
+		 <input type="checkbox"  id="others" ng-click="onCheckOthers()">
+         <label>Others</label> 	 
+        </div>
+        (*)These subscriptions have an associated cost.
+        <div>
+        <name-one></name-one>
+        </div>
+    </body>
+</html>

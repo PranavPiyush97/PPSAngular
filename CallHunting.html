@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body{
+            background-color:white;
+        }
+        
+        table{
+            width: auto;
+            height: auto;
+        }
+        
+        th{
+            background-color: #8f8b8b;
+        }
+        td{
+            background-color: white;
+        }
+		 .myTable{
+            margin-left: 20px;
+        }
+
+		.add{
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+       .parent {display: block;
+                position: relative;
+                float: none;
+                line-height: 30px;
+                background-color: #8f8b8b;
+;
+                border-right:#CCC 1px solid;
+        }
+        
+       .parent a{margin: 10px;
+                 color: #FFFFFF;
+                 text-decoration: none;
+        }
+        
+       .parent:hover > ul {display:block;
+                           position:absolute;
+                           
+        }
+        
+       .child {display: none;
+               left: 40%;}
+        
+       .child li {background-color: #E4EFF7;
+                  line-height: 30px;
+                  border-bottom:#CCC 1px solid;
+                  border-right:#CCC 1px solid;
+                  width:100%;
+        }
+        
+       .child li a{color: #000000;}
+        
+        ul{list-style: none;
+          margin: 0;
+          padding: 0px; 
+          min-width:10em;
+        }
+        
+        ul ul ul{left: 100%;
+                 top: 0;
+                 margin-left:1px;}
+
+
+        .parent li:hover {background-color: #F0F0F0;}
+
+        .expand{font-size:12px;
+                float:right;
+                margin-right:0;}
+        
+
+
+    </style>
+    </head>
+    <body>
+		<center ng-init="getdata()"></center> 
+        <button ng-click="addRow()" class="add" id="add"><i class="fa fa-plus" style="color: black">Add Deatils</i></button>
+        <br>
+        
+        <table id="dataTable" class="myTable" border="1" style="width: 1000px">
+            <thead>
+                <tr>
+                    <th style="width: 75%">
+						 <li class="parent">
+                            <a href="#">Directory Number</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                        <li><input type="checkbox">Directory Number</li>
+                                        <li><input type="checkbox">Busy</li>
+                                        <li><input type="checkbox">No Answer</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>               
+					</th>
+                    
+                    <th style="width: 10%">
+						 <li class="parent">
+                            <a href="#">Busy</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                        <li><input type="checkbox">Directory Number</li>
+                                        <li><input type="checkbox">Busy</li>
+                                        <li><input type="checkbox">No Answer</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                         
+                    </th>
+                    
+                    <th style="width: 10%">
+                          <li class="parent">
+                            <a href="#">No Answer</a>
+                            <ul class="child">
+                                <li><a href="#">Sort Ascending</a></li>
+                                <li><a href="#">Sort Descending</a></li>
+                                <li class="parent">
+                                    <a href="#">Columns<span class="expand">»</span></a>
+                                    <ul class="child">
+                                        <li><input type="checkbox">Directory Number</li>
+                                        <li><input type="checkbox">Busy</li>
+                                        <li><input type="checkbox">No Answer</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </th>
+                    
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+			 <tbody>
+                <tr ng-repeat="x in abc">
+				   <div *ngif="x!=null; else elseBlock">
+                   <td><input type="text" ng-model="x.directoryNumber" style="width: 100%" id="x-{{$index}}"></td>
+                   
+                   <td style="text-align: center"><input type="checkbox" ng-model="x.onBusy" class="c1" id="c1Busy-{{$index}}"></td>
+                   <td style="text-align: center"><input type="checkbox" ng-model="x.onNoAnswer" class="c2" id="c1NoAnswer-{{$index}}"></td>
+                  <td style="width: 20px">
+                      <button ng-click="removeRow(x.directoryNumber,$index)"><i class="fa fa-trash" style="color: black"></i></button>
+                  </td>
+                   <td style="width: 20px">
+                       <button ng-click="submit(x.directoryNumber,x.onBusy,x.onNoAnswer)"><i class="fa fa-dollar" style="color: black"></i></button>
+                   </td>
+			</div>
+				   <ng-template #elseBlock>
+                
+                <tr ng-repeat="entities in rows">
+                  <td><input type="tel" ng-model="number" id="entities-{{$index}}" style="width: 100%" ng-pattern=regEx required></td>
+                   
+                   <td style="text-align: center"><input type="checkbox" ng-model="check1" class="c1" id="c2Busy-{{$index}}"></td>
+                   <td style="text-align: center"><input type="checkbox" ng-model="check2" class="c2" id="c2NoAnswer-{{$index}}"></td>
+                  <td style="width: 20px">
+                      <button ng-click="removeRow($index)" disabled><i class="fa fa-trash" style="color: black"></i></button>
+                  </td>
+                   <td style="width: 20px">
+                       <button ng-click="submit(number,check1,check2)" id="submit-{{$index}}"><i class="fa fa-dollar" style="color: black"></i></button>
+                   </td>
+               </tr>
+                    </ng-template>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
